@@ -1,0 +1,16 @@
+
+
+DECLARE @MAAS DECIMAL(10,3), @N INT = 9, @I INT = 1 ;
+
+SELECT * FROM Employees;
+
+WHILE(@I <= @N)
+BEGIN
+	SELECT @MAAS = ROUND((RAND()*(150000 - 20000) + 20000),0); -- RND ATAMA
+
+	PRINT 'MAAS: ' + CAST(@MAAS AS VARCHAR)
+	UPDATE Employees SET SALARY = @MAAS WHERE EmployeeID = @I;
+	SET @I = @I +1;
+END
+
+SELECT * FROM Employees;
